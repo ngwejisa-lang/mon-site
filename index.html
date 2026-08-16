@@ -1,47 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <link rel="manifest" href="manifest.json">
-    <link rel="manifest" href="/manifest.json">
- <meta name="theme-color" content="#FFD700">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceuil</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5EM370VX3F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5EM370VX3F');
-</script>
-</head>
-<body>
-    <a href="javascript:void(0)" class="icon-panier" onclick="commanderPanierWhatsApp()">&#128722;<span id="compteur-panier">0</span>
- </a>
- <button class="btn-panier" onclick="afficherPanier()" style="display:none;"></button>
-  <header>
-
-<button id="install-button">
-    <span class="icon">📲</span>
-    <span class="text">Installer l'app</span>
-</button>
-
-  <button id="menuBtn">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>  
-  <nav id="menu">
-    <H2>NOS MENUS</H2>
-    <a href="index.html">Acceuil</a>
-    <a href="service.html">Service</a>
-    <a href="contact.html">Developpeur</a>
-  </nav>
-</header>
-<head>
-<style>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/icon-192.png">
+    <meta name="theme-color" content="#FFD700">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5EM370VX3F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5EM370VX3F');
+    </script>
+    
+    <style>
     #menuBtn{
     font-size: 30px;
     background: none;
@@ -1011,8 +989,35 @@ a{
     }
 }
 
-</style>
-<main class="marc-box" style="margin: 10px; padding: 15px; width: 100%;">
+        /* Tout votre CSS */
+    </style>
+</head>
+<body>
+    <!-- Panier -->
+    <a href="javascript:void(0)" class="icon-panier" onclick="commanderPanierWhatsApp()">&#128722;<span id="compteur-panier">0</span></a>
+    
+    <!-- Header avec menu burger -->
+    <header>
+        <button id="install-button">
+            <span class="icon">📲</span>
+            <span class="text">Installer l'app</span>
+        </button>
+        
+        <button id="menuBtn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <nav id="menu">
+            <h2>NOS MENUS</h2>
+            <a href="index.html">Accueil</a>
+            <a href="service.html">Service</a>
+            <a href="contact.html">Développeur</a>
+        </nav>
+    </header>
+    
+    <main class="marc-box" style="margin: 10px; padding: 15px; width: 100%;">
 <div class="ordinateurs-box" style="text-align: center; margin-top: 30px;">
     <section>
    <h1>BIENVENUE CHEZ S.HUMILDE</h1> 
@@ -1084,120 +1089,99 @@ a{
         <span>⭐⭐⭐</span>
     </div>
 </div>
-<script>
-    const bouton=document.getElementById("menuBtn");
-const menu=document.getElementById("menu");
-bouton.addEventListener("click", () =>{
-menu.classList.toggle("ouvert");});
-//debut panier
- // NE JAMAIS VIDER AU CHARGEMENT
- document.addEventListener('DOMContentLoaded', mettreAJourCompteur);
- // 1. AJOUTER AU PANIER
- function ajouterAuPanier(nom, prix) {
-    let panier = JSON.parse(localStorage.getItem('panier')) || [];
-    let produit = panier.find(item => item.nom === nom);
-    if(produit) {
-        produit.quantite += 1;
-    } else {
-        panier.push({nom: nom, prix: prix, quantite: 1});
-    }
-    localStorage.setItem('panier', JSON.stringify(panier));
-    alert(nom + " ajouté au panier !");
-    mettreAJourCompteur();
- }
- // 2. AJOUTER ET COMMANDER DIRECT
- function ajouterEtCommander(nom, prix) {
-    ajouterAuPanier(nom, prix);
-    commanderPanierWhatsApp();
- }
- // 3. METTRE A JOUR LE COMPTEUR
- function mettreAJourCompteur() {
-    let panier = JSON.parse(localStorage.getItem('panier')) || [];
-    let total = 0;
-    panier.forEach(item => total += item.quantite);
-    let compteur = document.getElementById('compteur-panier');
-    if(compteur) compteur.innerText = total;
- }
- // 4. ENVOYER SUR WHATSAPP ET VIDER APRES
- function commanderPanierWhatsApp() {
-    let panier = JSON.parse(localStorage.getItem('panier')) || [];
-    if(panier.length === 0) {
-        alert("Votre panier est vide");
-        return;
-    }
-    let numero = "243999698899"; // TON NUMERO
-    let message = "Bonjour YANICK-BUSNESS, je veux commander:\n\n";
-    let total = 0;
-panier.forEach(item => {
- message += `• ${item.nom} - ${item.prix}$ x ${item.quantite}\n`;
- total += item.prix * item.quantite;
- });
- message += `\nTOTAL: ${total}$\n\nMerci !`;
- window.open(`https://wa.me/${numero}?text=${encodeURIComponent(message)}`);
- localStorage.removeItem('panier'); // Vide seulement après envoi
- mettreAJourCompteur();
- alert("Commande envoyée ! Le panier a été vidé.");
- }
- if ('serviceWorker' in navigator) {
- navigator.serviceWorker.register('sw.js');
- }
- 
-    // Enregistrement du Service Worker
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-                .then((registration) => {
-                    console.log('Service Worker enregistré avec succès:', registration);
-                })
-                .catch((error) => {
-                    console.log('Erreur d\'enregistrement du Service Worker:', error);
-                });
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 YANICK-BUSNESS.com - Tous droits réservés.</p>
+        <p>Développé par <a href="contact.html"><b>SAMUEL MARCUS SAM.</b></a></p>
+        <p>L'horloge de Dieu n'est pas celle des hommes, alors garde espoir</p>
+    </footer>
+    
+    <!-- JavaScript à la fin -->
+    <script>
+        // Menu burger
+        const bouton = document.getElementById("menuBtn");
+        const menu = document.getElementById("menu");
+        bouton.addEventListener("click", () => {
+            menu.classList.toggle("ouvert");
         });
-    }
-
-    // 1. Service Worker
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
+        
+        // Panier
+        document.addEventListener('DOMContentLoaded', mettreAJourCompteur);
+        
+        function ajouterAuPanier(nom, prix) {
+            let panier = JSON.parse(localStorage.getItem('panier')) || [];
+            let produit = panier.find(item => item.nom === nom);
+            if (produit) {
+                produit.quantite += 1;
+            } else {
+                panier.push({nom: nom, prix: prix, quantite: 1});
+            }
+            localStorage.setItem('panier', JSON.stringify(panier));
+            alert(nom + " ajouté au panier !");
+            mettreAJourCompteur();
+        }
+        
+        function mettreAJourCompteur() {
+            let panier = JSON.parse(localStorage.getItem('panier')) || [];
+            let total = 0;
+            panier.forEach(item => total += item.quantite);
+            let compteur = document.getElementById('compteur-panier');
+            if (compteur) compteur.innerText = total;
+        }
+        
+        function commanderPanierWhatsApp() {
+            let panier = JSON.parse(localStorage.getItem('panier')) || [];
+            if (panier.length === 0) {
+                alert("Votre panier est vide");
+                return;
+            }
+            let numero = "243999698899";
+            let message = "Bonjour YANICK-BUSNESS, je veux commander:\n\n";
+            let total = 0;
+            panier.forEach(item => {
+                message += `• ${item.nom} - ${item.prix}$ x ${item.quantite}\n`;
+                total += item.prix * item.quantite;
+            });
+            message += `\nTOTAL: ${total}$\n\nMerci !`;
+            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(message)}`);
+            localStorage.removeItem('panier');
+            mettreAJourCompteur();
+            alert("Commande envoyée ! Le panier a été vidé.");
+        }
+        
+        // Service Worker (UN SEUL)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('✅ SW enregistré'))
+                    .catch(err => console.error('❌ Erreur SW:', err));
+            });
+        }
+        
+        // Bouton installation
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.classList.add('visible');
         });
-    }
-
-    // 2. Bouton Install
-    let deferredPrompt;
-    const installButton = document.getElementById('install-button');
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installButton.style.display = 'flex'; // On montre le bouton
-
-        // On attache le clic ici, quand le bouton est visible
-        installButton.onclick = async () => {
-            installButton.style.display = 'none'; // Cache direct pour éviter double clic
+        
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            installButton.classList.remove('visible');
             deferredPrompt.prompt();
             const result = await deferredPrompt.userChoice;
-            console.log('Choix:', result.outcome);
+            console.log('Résultat:', result.outcome);
             deferredPrompt = null;
-        };
-    });
-
-    window.addEventListener('appinstalled', () => {
-        installButton.style.display = 'none';
-    });
-
-</script>  
+        });
+        
+        window.addEventListener('appinstalled', () => {
+            installButton.classList.remove('visible');
+        });
+    </script>
 </body>
-    <article class="toi-box">
-<h4 style="text-align: center;">Nous vous invitons donc a cliquer sur le bouton Apropos ci-bas <br> pour en savoir un peu plus sur Nous.</h4>
-</article> 
-<ul class="humilde">
-   <nav>
-    <b><a href="service.html" class="btn-service">Service</a></b>
-   </nav>
- </ul>
-<footer class="footer">
-        <p>&copy;2026 YANICK-BUSNESS.com-tous droits réservé. </p>
-        <p>developper par <a href="contact.html"><b>SAMUEL MARCUS SAM.</b></a></p>
-        <p>l'orloge de Dieu n'est pas ce lui des hommes Alors garde espoir</p>
-</footer> 
 </html>

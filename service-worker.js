@@ -14,6 +14,7 @@ const urlsToCache = [
   '/chaussure.html',
   '/chapau.html',
   '/offline.html',
+  '/images',
   '/images/icon-192.png',  // <-- Chemin corrigé
   '/images/icon-512.png'   // <-- Chemin corrigé
   // Ajoute ici ton CSS, JS, et images produits quand tu en auras
