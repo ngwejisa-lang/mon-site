@@ -1,15 +1,15 @@
-const CACHE_NAME = 'siempre-hulide-v1';
+const CACHE_NAME = 'siempre-humilde-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/service.html'
-  '/jupe.html'
-  '/montre.html'
-  '/pagne.html'
-  '/talon.html'
-  '/veste.html'
-  '/veston.html'
-  '/contact.html'
+  '/service.html',
+  '/jupe.html',
+  '/montre.html',
+  '/pagne.html',
+  '/talon.html',
+  '/veste.html',
+  '/veston.html',
+  '/contact.html',
   '/bijoux.html',
   '/chaussure.html',
   '/chapau.html',
