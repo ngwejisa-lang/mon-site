@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mon sit web</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5EM370VX3F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5EM370VX3F');
+</script>
+    <style>
+      #menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #FFD700;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--couleur-fond);
+    color:var(--couleur-texte) ;
+    line-height:1.6;
+}
+body {
+    background-color: mediumturquoise;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/*pour le box qui contient les paragaraphges et les lignes qui le separnt*/
+.acceuil-box{
+    background:#1a1a1a;
+    border: 5px solid #333;
+    border-left: 3px solid #FFD700;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(red, green, blue, alpha);
+    transition: transform 0.3s ease;
+}
+/*fait bouger les blocs*/
+.acceuil-box:hover{
+    transform: translateY(-5px);
+}
+/*concerne le titre h3 leur tailles et distances du dessus avec le box*/
+.acceuil-box h3{
+    color: #FFD700;
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+.forme .type b{
+    color: #0ff065;
+}
+/*concerne les mots dans le type*/
+.forme{
+    list-style: none;
+    padding: 0;
+}
+/*caractere donner au mots type*/
+.type li {
+    background: #1a1a1a;
+    margin: 12px 0;
+    padding: 15Px 20px;
+    border-radius: 8px;
+    border-left: 3px solid #FFD700;
+    font-size: 1rem;
+    transition: backgound 0.3s ease;
+    width: 67%;
+}
+.type li:hover{
+    background: rgb(228, 87, 106);
+}
+.forme h2{
+    color: #FFD700;
+}
+/*footer*/
+.footer{
+    background: #000000;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 5px solid #FFD700;
+}
+.footer p {
+    margin: 8px 0;
+    font-size: 1rem;
+}
+.footer p:first-child {
+    color: #df0909;
+    font-weight: bold;
+}
+.footer b{
+    color: #0ff065;
+}
+.acceuil-box h4{
+    color: #FFD700;
+}
+.gogo-box b{
+    color: #0ff065;
+}
+
+/* ON COMMENCE L'ICÔNE PANIER EN HAUT A GAUCHE */
+ .icon-panier {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #313b41;
+    color: #000;
+    padding: 10px 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+ }
+ .icon-panier:hover { transform: scale(1.1); }
+ #compteur-panier {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #f00423;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+ }
+ /* ========== BLOC TITRE H1 RESPONSIVE MOBILE ========== */
+
+@media screen and (max-width: 767px) {
+  
+  .tablettes-box {
+    padding: 10px;
+    margin-top: 15px !important;
+  }
+  
+  .tablettes-box h1 {
+    font-size: 18px;
+    word-wrap: break-word;
+  }
+  
+  .tablettes-box h3 {
+    font-size: 14px;
+  }
+}
+a {
+    text-decoration: none;
+}
+  
+    </style>
+</head>
+<body>
+  
+  <a href="javascript:void(0)" class="icon-panier" onclick="commanderPanierWhatsApp()"> &#128722;  <span id="compteur-panier">0</span>
+ </a>
+ <button class="btn-panier" onclick="afficherPanier()" style="display:none;"></button>
+<header>
+  <button id="menuBtn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button> 
+  <div class="davina"> 
+    <nav id="menu">
+    <H2>NOS MENUS</H2>
+    <a href="index.html">Acceuil</a>
+    <a href="service.html">Service</a>
+    <a href="contact.html">Developpeur</a>
+   </nav>
+  </div>
+</header>
+<div class="acceuil-box">
+  <div class="tablettes-box" style="text-align: center; margin-top: 30px;">
+       <b><h4> DECOUVREZ NOS MARQUES</h4></b>
+    <section class="gogo-box">
+       <p>chez nous vous avez la possibilté de <b>passer vos commandes en ligne directemnt via l'application</b> <br>et notre équipe sera disponible pour la gestion des vos commandes en temps réel.</p>
+       <p>Voici nos Articles par section ci-bas.</p>
+    </section>
+  </div>
+</div>
+</main>
+<article class="forme">
+  <nav>
+    <ul class="type">
+      <h3 style="color: black;">SECTION HOMME:</h3>
+      <a href="Montre.html"><b><li>Jeans</li></b></a>
+      <a href="chapau.html"><b><li>chapeau</li></b></a>
+      <a href="veste.html"><b><li>vestes</li></b></a>
+      <a href="chaussure.html"><b><li>chaussures</li></b></a>
+    </ul>
+    <ul class="type">
+      <h3 style="color: black;">SECTION FEMMES:</h3>
+      <nav class="moi">
+      </nav>
+      <a href="jupe.html"><b><li>jupes</li></b></a>
+      <a href="pagne.html"><b><li>pagnes</li></b></a>
+      <a href="bijoux.html"><b><li>bijoux</li></b></a>
+      <a href="veston.html"><b><li>vestes</li></b></a>
+      <a href="talon.html"><b><li>chaussures</li></b></a>
+      
+    </ul>
+</article>
+<script src="script.js"></script>
+<script>
+    const bouton=document.getElementById("menuBtn");
+const menu=document.getElementById("menu");
+bouton.addEventListener("click", () =>{
+menu.classList.toggle("ouvert");})
+
+ // NE JAMAIS VIDER AU CHARGEMENT
+ document.addEventListener('DOMContentLoaded', mettreAJourCompteur);
+ // 1. AJOUTER AU PANIER
+ function ajouterAuPanier(nom, prix) {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    let produit = panier.find(item => item.nom === nom);
+    if(produit) {
+        produit.quantite += 1;
+    } else {
+        panier.push({nom: nom, prix: prix, quantite: 1});
+    }
+    localStorage.setItem('panier', JSON.stringify(panier));
+    alert(nom + " ajouté au panier !");
+    mettreAJourCompteur();
+ }
+ // 2. AJOUTER ET COMMANDER DIRECT
+ function ajouterEtCommander(nom, prix) {
+    ajouterAuPanier(nom, prix);
+    commanderPanierWhatsApp();
+ }
+ // 3. METTRE A JOUR LE COMPTEUR
+ function mettreAJourCompteur() {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    let total = 0;
+    panier.forEach(item => total += item.quantite);
+    let compteur = document.getElementById('compteur-panier');
+    if(compteur) compteur.innerText = total;
+ }
+ // 4. ENVOYER SUR WHATSAPP ET VIDER APRES
+ function commanderPanierWhatsApp() {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    if(panier.length === 0) {
+        alert("Votre panier est vide");
+        return;
+    }
+    let numero = "243999698899"; // TON NUMERO
+    let message = "Bonjour YANICK-BUSNESS, je veux commander:\n\n";
+    let total = 0;
+panier.forEach(item => {
+ message += `• ${item.nom} - ${item.prix}$ x ${item.quantite}\n`;
+ total += item.prix * item.quantite;
+ });
+ message += `\nTOTAL: ${total}$\n\nMerci !`;
+ window.open(`https://wa.me/${numero}?text=${encodeURIComponent(message)}`);
+ localStorage.removeItem('panier'); // Vide seulement après envoi
+ mettreAJourCompteur();
+ alert("Commande envoyée ! Le panier a été vidé.");
+ }
+   </script>
+</body>
+<footer class="footer">
+        <p>&copy;2026 YANICK-BUSNESS.com-tous droits réservé. </p>
+        <p>developper par <a href="contact.html"><b>SAMUEL MARCUS SAM.</a></b></p>
+        <p>l'orloge de Dieu n'est pas ce lui des hommes Alors garde espoir</p>
+</footer>
+</html>

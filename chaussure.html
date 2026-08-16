@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nos tablettes</title>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5EM370VX3F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5EM370VX3F');
+</script>
+    <style>
+ #menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #FFD700;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--couleur-fond);
+    color:var(--couleur-texte) ;
+    line-height:1.6
+}
+/*fin du style des mots dans le menu burger*/
+* body{
+    background-color: grey;
+}
+/*pour le box qui contient les images et les lignes qui le separnt*/
+.tablettes-box {
+    background:#1a1a1a;
+    border: 5px solid #333;
+    border-left: 5px solid #FFD700;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(red, green, blue, alpha);
+    transition: transform 0.3s ease;
+    width: 93%;
+    margin: 10px;
+}
+.tablettes-box h1 {
+    color: #FFD700;
+}
+.tablettes-box h3{
+    color: #0ff065;
+}
+.tablettes-box b{
+    color: #000000;
+}
+/*fait bouger les blocs*/
+.tablettes-box:hover{
+    transform: translateY(-5px);
+}
+/*debut de la partie box qui contient les petites images des voitures */
+.tablettes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px 20px;
+    background: #0a0a0A;
+    max-width: 1200px;
+    margin: 0;
+    border-radius: 10px;
+    border-left: 7px solid #FFD700;
+}
+/*affiche 2 image sur un téléphone*/
+@media (max-width: 900px) {
+    .tablettes{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/*affiche 1 image sur un téléphone*/
+@media (max-width: 600px) {
+    .tablettes{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+/*ici nous a avons les coulurs de border et leur typse*/
+.tablettes-card {
+    background: #0a82d3;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s;
+}
+/*jaune du survol de blocs*/
+.tablettes-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #d80606;
+}
+/*ici nous avons les tailles de nos blocs contenants nos images*/
+.tablettes-card img{
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: cadetblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.tablettes-card h3{
+    color: yellow;
+    font-size: 18px;
+    margin: 10px
+}
+.prix{
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+/*footer*/
+/* ========== RESET DE BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Empêche le scroll horizontal sur mobile */
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: #000000;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 5px solid #FFD700;
+    width: 100%;
+}
+
+.footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    word-wrap: break-word; /* Évite les débordements de texte */
+}
+
+.footer p:first-child {
+    color: #df0909;
+    font-weight: bold;
+}
+
+.footer a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+.footer b {
+    color: #6ff965;
+}
+
+/* ========== RESPONSIVE MOBILE ========== */
+@media (max-width: 768px) {
+    .footer {
+        padding: 25px 15px;
+        margin-top: 30px;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 20px 12px;
+        margin-top: 20px;
+    }
+    
+    .footer p {
+        font-size: 0.85rem;
+        margin: 7px 0;
+    }
+}
+.btn-service:hover{
+    transform: translateY(-5px);
+}
+.btn-service{
+    width: 50%;
+    display: block;
+    padding: 12px;
+    text-align: left;
+    text-decoration: none;
+}
+.toi-box h4 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+   .btn-service {
+        color: rgb(8, 245, 79);
+    }
+    .btn-service {
+    background: #1a1a1a;
+    margin: 12px 0;
+    padding: 15Px 20px;
+    border-radius: 8px;
+    border-left: 5px solid #FFD700;
+    font-size: 1rem;
+    transition: backgound 0.3s ease;
+}
+.btn-service:hover{
+    background: rgb(228, 87, 106);
+}
+.forme h2{
+    color: #FFD700;
+}
+/*pour le bouton panier et commande*/
+.boutons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+/*agrandi les blocs qui contient panier et commande*/
+.btn-panier, .btn-commander {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+/*contour du boouton panier*/
+.btn-panier{
+    background: green;
+    color: #FFD700;
+    border: 2px solod #e408b4;
+}
+/*couleur au survol color pour les mots*/
+.btn-panier:hover{
+    background: #FFD700;
+    color: #000;
+}
+.btn-commander{
+    background: #FFD700;
+    color: #000;
+}
+.btn-commander:hover{
+    background: #000;
+    color: #FFD700;
+    border: 2px solid #00ff4c;
+}
+/* ON COMMENCE L'ICÔNE PANIER EN HAUT A GAUCHE */
+ .icon-panier {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #313b41;
+    color: #000;
+    padding: 10px 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+ }
+ .icon-panier:hover { transform: scale(1.1); }
+ #compteur-panier {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+ }
+  /* TITRES */
+ .iphones-box h1, .iphones-box h3 { text-align: center; color: #FFD700; }
+ /* GRILLE PRODUITS */
+ .smsung { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+ .smsung{ background: #111; padding: 15px; border-radius: 10px; text-align: center; border: 2px solid #00FF00; }
+ .sasung img { width: 100%; height: 200px; object-fit: contain; }
+ .sam h3 { color: #00FF00; }
+ .sam { color: #FFD700; font-size: 20px; font-weight: bold; }
+ /* BOUTONS */
+ .btn-ajouter { background: #00FF00; color: #000; border: none; padding: 10px; width: 100%; border-radius: 5px; 
+cursor: pointer; margin-bottom: 10px; font-weight: bold; }
+ .btn-commander { background: #FFD700; color: #000; border: none; padding: 10px; width: 100%; border-radius: 
+5px; cursor: pointer; font-weight: bold; }
+
+ .avis-clients {
+    background: #111;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 10px;
+ }
+ .avis-clients h2 {
+    color: #FFD700;
+    margin-bottom: 30px;
+ }
+ .avis-box {
+    background: #222;
+    border-left: 4px solid #FFD700;
+    padding: 7px;
+    margin: 10px auto;
+    max-width: 600px;
+    border-radius: 8px;
+ }
+.avis-box p {
+ color: #fff;
+ font-style: italic;
+ }
+ .avis-box h4 {
+ color: #00FF00;
+ margin-top: 10px;
+ }
+ .avis-box span {
+ color: #FFD700;
+ font-size: 20px;
+ }
+ 
+ /* ========== RESPONSIVE - NE PAS TOUCHER LE RESTE ========== */
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Grille produits */
+.tablettes {
+  display: grid;
+  gap: 15px;
+  padding: 10px;
+}
+
+/* PC et grand écran : 3 colonnes */
+@media screen and (min-width: 768px) {
+  .tablettes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Téléphone : 2 colonnes */
+@media screen and (max-width: 767px) {
+  .tablettes {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 5px;
+  }
+  
+  .tablettes-card {
+    text-align: center;
+  }
+  
+  .boutons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .btn-panier, .btn-commander {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 22px;
+  }
+  
+  h3 {
+    font-size: 16px;
+  }
+  
+  p {
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px;
+  }
+}
+a{
+    text-decoration: none;
+}
+  /* ========== AVIS CLIENTS RESPONSIVE MOBILE ========== */
+
+@media screen and (max-width: 767px) {
+  
+  .avis-clients {
+    padding: 15px;
+  }
+  
+  .avis-clients h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .avis-box {
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .avis-box p {
+    font-size: 14px;
+  }
+  
+  .avis-box h4 {
+    font-size: 13px;
+  }
+}
+/* ========== FOOTER RESPONSIVE MOBILE ========== */
+
+@media screen and (max-width: 767px) {
+  
+  .footer {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .footer p {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  
+  .footer a {
+    font-size: 13px;
+  }
+}
+    </style>
+</head>
+<body>
+       <a href="javascript:void(0)" class="icon-panier" onclick="commanderPanierWhatsApp()"> &#128722;  <span id="compteur-panier">0</span>
+ </a>
+ <button class="btn-panier" onclick="afficherPanier()" style="display:none;"></button>
+<header>
+  <button id="menuBtn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>  
+  <nav id="menu">
+    <H2>NOS MENUS</H2>
+    <a href="index.html">Acceuil</a>
+    <a href="service.html">Service</a>
+    <a href="contact.html">Developpeur</a>
+  </nav>
+</header>
+<head>
+    <div class="tablettes-box" style="text-align: center; margin-top: 30px;">
+   <h1>BONNES CHAUSSURES S.HUMILDE</h1> 
+   <p>
+    <h3>VOTRE HABILLEUR DE LUXE </h3></div>
+     <br> <h3><b>Chers client(es): </h3></b>
+   </p>
+</head>
+<p style=" font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius: 10px; width: 90%; color: white;">
+    cliquer sur le bouton: <b style="color: #FFD700;">Ajouter au panier</b> si vous payer plusieurs Articles à la fois et cliquer sur l'icone en forme d'un panier pour commander toutes vos articles!</b> <br>
+    cliquer sur le bouton: <b style="color: #FFD700;">Commander Direct</b> si vous ne payer qu'un seul Article ! </b>
+</p>
+   <section class="tablettes">
+    <div class="tablettes-card">
+        <img src="images/IMG_1214.jpeg" alt="tablettes"><h3>R-force One<br>⭐⭐⭐⭐⭐</h3><p class="prix">45$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('R-force One',45)">Ajouter au panier</button>
+        <a href="https://wa.me/243999698899?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20R-force One de 45$" target="_blank">
+            <button class="btn-commander" >Commander Direct</button>
+        </a>
+    </div>
+    </div>
+    
+    <div class="tablettes-card">
+        <img src="images/IMG_6474.JPG" alt="tablettes"><h3>One<br>⭐⭐⭐⭐⭐</h3><p class="prix">50$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('One',50)">Ajouter au panier</button>
+        <a href="https://wa.me/243999698899?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20One de 50$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+    
+    <div class="tablettes-card">
+        <img src="images/IMG_6472.JPG" alt="tablettes"><h3>Campus<br>⭐⭐⭐⭐⭐</h3><p class="prix">50$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('Campus',50)">Ajouter au panier</button>
+        <a href="https://wa.me/243999698899?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20Campus de 50$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+    
+    <div class="tablettes-card">
+        <img src="images/IMG_6480.JPG" alt="tablettes"><h3>Spadri<br>⭐⭐⭐⭐⭐</h3><p class="prix">60$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('Spadri',60)">Ajouter au panier</button>
+        <a href="https://wa.me/243999698899?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20Spadri de 60$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+    
+    <div class="tablettes-card">
+        <img src="images/IMG_1212.jpeg" alt="tablettes"><h3>R-Nike<br>⭐⭐⭐⭐⭐</h3><p class="prix">12$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('R-Nike',12)">Ajouter au panier</button>
+        <a href="https://wa.me/243999698899?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20R-Nike de 12$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+    
+    <div class="tablettes-card">
+        <img src="images/IMG_6448.JPG" alt="tablettes"><h3>Mokasin<br>⭐⭐⭐⭐⭐</h3><p class="prix">45$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('Mokasin',45)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20Mokasin de 45$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+
+    <div class="tablettes-card">
+        <img src="images/IMG_6478.JPG" alt="tablettes"><h3>N-jordan<br>⭐⭐⭐⭐⭐</h3><p class="prix">60$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('N-jordan',60)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20N-jordan de 60$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+
+    <div class="tablettes-card">
+        <img src="images/IMG_6473.JPG" alt="tablettes"><h3>Adiddas<br>⭐⭐⭐⭐⭐</h3><p class="prix">54$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('Adiddas',54)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20Adiddas de 54$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+
+    <div class="tablettes-card">
+        <img src="images/IMG_6451.JPG" alt="tablettes"><h3>Prada<br>⭐⭐⭐⭐⭐</h3><p class="prix">130$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('Prada',130)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20Prada de 130$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+
+     <div class="tablettes-card">
+        <img src="images/IMG_1220.jpeg" alt="tablettes"><h3>R-Nike blanc<br>⭐⭐⭐⭐⭐</h3><p class="prix">38$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('R-Nike blanc',38)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20R-Nike blanc de 38$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+     <div class="tablettes-card">
+        <img src="images/IMG_6477.JPG" alt="tablettes"><h3>Vans<br>⭐⭐⭐⭐⭐</h3><p class="prix">71$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('Vans',71)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20Vans de 71$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+
+     <div class="tablettes-card">
+        <img src="images/IMG_1213.jpeg" alt="tablettes"><h3>R-jordan Noire<br>⭐⭐⭐⭐⭐</h3><p class="prix">100$</p>
+    <div class="boutons">
+        <button class="btn-panier" onclick="ajouterAuPanier('R-jordan Noire',100)">Ajouter au panier</button>
+        <a href="https://wa.me/243826671939?text=Bonjour%20SAMUEL-BUSNESS%20je%20veux%20commander%20la%20chaussure%20R-jordan Noire de 100$" target="_blank">
+            <button class="btn-commander">Commander Direct</button>
+        </a>
+    </div>
+    </div>
+    </section>
+    <article class="toi-box">
+<h4>Revenir en Arriere pour tous voir</h4>
+</article> 
+<ul class="humilde">
+   <nav>
+    <b><a href="service.html" class="btn-service">Revenir en Arriere</a></b>
+   </nav>
+</ul>
+<script>
+    const bouton=document.getElementById("menuBtn");
+const menu=document.getElementById("menu");
+bouton.addEventListener("click", () =>{
+menu.classList.toggle("ouvert");})
+
+ // NE JAMAIS VIDER AU CHARGEMENT
+ document.addEventListener('DOMContentLoaded', mettreAJourCompteur);
+ // 1. AJOUTER AU PANIER
+ function ajouterAuPanier(nom, prix) {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    let produit = panier.find(item => item.nom === nom);
+    if(produit) {
+        produit.quantite += 1;
+    } else {
+        panier.push({nom: nom, prix: prix, quantite: 1});
+    }
+    localStorage.setItem('panier', JSON.stringify(panier));
+    alert(nom + " ajouté au panier !");
+    mettreAJourCompteur();
+ }
+ // 2. AJOUTER ET COMMANDER DIRECT
+ function ajouterEtCommander(nom, prix) {
+    ajouterAuPanier(nom, prix);
+    commanderPanierWhatsApp();
+ }
+ // 3. METTRE A JOUR LE COMPTEUR
+ function mettreAJourCompteur() {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    let total = 0;
+    panier.forEach(item => total += item.quantite);
+    let compteur = document.getElementById('compteur-panier');
+    if(compteur) compteur.innerText = total;
+ }
+ // 4. ENVOYER SUR WHATSAPP ET VIDER APRES
+ function commanderPanierWhatsApp() {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    if(panier.length === 0) {
+        alert("Votre panier est vide");
+        return;
+    }
+    let numero = "243826671939"; // TON NUMERO
+    let message = "Bonjour SAMUEL-BUSNESS, je veux commander:\n\n";
+    let total = 0;
+panier.forEach(item => {
+ message += `• ${item.nom} - ${item.prix}$ x ${item.quantite}\n`;
+ total += item.prix * item.quantite;
+ });
+ message += `\nTOTAL: ${total}$\n\nMerci !`;
+ window.open(`https://wa.me/${numero}?text=${encodeURIComponent(message)}`);
+ localStorage.removeItem('panier'); // Vide seulement après envoi
+ mettreAJourCompteur();
+ alert("Commande envoyée ! Le panier a été vidé.");
+ }
+   </script>
+</body>
+ <div class="avis-clients">
+    <h2>CE QUE DISENT NOS CLIENTS</h2>
+    <div class="avis-box">
+        <p> <b> "Merci beaucoup pour votre acceuil YANICK-BUSNESS"</b></p>
+        <h4>- Josue. Kolwezi</h4>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="avis-box">
+        <p> <b> "Prix abordable et service Excellent"</b></p>
+        <h4>- Keith. Istm</h4>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="avis-box">
+        <p> <b> "Wow juste après avoir passer ma commande et seuledment quelques minutes après j'ai recu ma commande."</b></p>
+        <h4>- Kazadi. Likasi</h4>
+        <span>⭐⭐⭐</span>
+    </div>
+ </div>
+<footer class="footer">
+        <p>&copy;2026 YANICK-BUSNESS.com-tous droits réservé. </p>
+        <p>developper par <a href="contact.html"><b>SAMUEL MARCUS SAM.</a></b></p>
+        <p>l'orloge de Dieu n'est pas ce lui des hommes Alors garde espoir</p>
+</footer>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="contacts.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5EM370VX3F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5EM370VX3F');
+</script>
+</head>
+<style>
+  nav b{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;list-style: none;
+    justify-content: center;
+    color:rgb(9, 226, 100);
+    text-decoration:none ;
+    font-weight: bold;
+    transition:color 0.3s ease ;
+}
+/*mettre sur la meme ligne les mots en bas du titre*/
+nav ul {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+#menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #FFD700;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+/*fin du bouton meny bergeur*/
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+.monBouton {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size:18px ;
+    font-weight: bold;
+}
+.monBouton:hover {
+    background: #128C7E;
+}
+
+.monBouton{
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(rgb(25, 0, 255), green, rgb(255, 153, 0), alpha);
+}
+/* ici nous trouvons notammnt ce qui bouger le bouton*/
+.monBouton:hover {
+    background: #128C7E;
+    transform: translateX(-3px);
+    box-shadow: 0 6px 20px rgba(red, rgb(128, 94, 0), blue, alpha);
+}
+main h3{
+    color: rgb(12, 8, 7);
+}
+main h2{
+    color: rgb(11, 5, 24);
+}
+.nav-principe {
+    @media (max-width:768px) {
+        
+    }
+    flex-direction: column;
+    gap: 10px;
+}
+*body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--couleur-fond);
+    color:var(--couleur-texte) ;
+    line-height:1.6
+}
+/*fin du style des mots dans le menu burger*/
+* body{
+    background-color: cadetblue;
+}
+
+</style>
+<body>
+ <header>
+  <button id="menuBtn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>  
+  <nav id="menu">
+    <H2>NOS MENUS</H2>
+    <a href="index.html">Acceuil</a>
+    <a href="service.html">Service</a>
+    <a href="contact.html">Developpeur</a>
+  </nav>
+</header>
+<main class="Developpeur-box" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="text-align: center; background-color: black; margin: 5px; border-radius: 10px;text-align: center; margin-top: 10px; padding:8px; border-left: 5px solid #FFD700; margin-bottom: 25px;">
+     <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#FFD700; padding: 10px;"> Développeur d'applications Web & Mobile</h2>
+    <nav class="nav-principe" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 
+     <ul>
+        <b><li>TRAVAIL</li></b>
+        <b><li>QUALITE</li></b>
+        <b><li>FOI</li></b>
+      </ul>
+    </nav>
+  </div>
+  <section style="background:black; margin: 70px; border-left: 5px solid #FFD700; border-radius: 10px; color: white; padding: 20px; margin: 5px; margin-bottom: 25px;">
+    <p>
+  <b>Nous concevons et développons des solutions digitales performantes, sécurisées et évolutives pour les entreprises et les particuliers.</b>
+ <h4 style="color: #25D366;">Spécialités:</h4> 
+  <b>- Applications Web sur-mesure : sites vitrines, plateformes, e-commerce <br>
+  - Applications Mobiles : Android & iOS, natives et cross-platform <br>
+  - Optimisation, maintenance et déploiement <br>
+  - Méthode : Analyse → Conception → Développement → Livraison <br>
+  - Engagement : Code propre, délais respectés, support réactif. <br> </b>
+ <h4 style="color: #25D366">Vous avez un projet ? Transformons votre vision en produit fonctionnel.</h4>
+</p>
+  </section>
+<article style="background: black; text-align: center; border-radius: 10px;  margin: 5px; padding: 10px;border-left: 5px solid #FFD700;">
+  <h4 style="color:white;">Joigner-Nous:</h4>
+  <a href="https://wa.me/243826671939?text=Bonjour%20Samuel,%20je%20viens%20de%20votre%20site%20et%20je%20suis%20là%20pour%20parler%20projet" class="monBouton"> <i class="fa-brands fa-whatsapp"></i>joindre sur whatsapp</a>
+     <p style="margin-top: 30px; font-size: 14px; color:#999;"></p>
+    <h4 style="color:white;"> Contactez nous directemnt:</h4>
+    <a href="tel:+243992311212" class="monBouton"> <i class="fa-solid fa-phone"></i>Appeler maintenant</a>
+    </p>
+</article>
+</main>
+<script>
+    const bouton=document.getElementById("menuBtn");
+const menu=document.getElementById("menu");
+bouton.addEventListener("click", () =>{
+menu.classList.toggle("ouvert");});
+
+</script>  
+</body>
+</html>

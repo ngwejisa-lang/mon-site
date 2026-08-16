@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="manifest.json">
+ <meta name="theme-color" content="#FFD700">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil</title>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5EM370VX3F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5EM370VX3F');
+</script>
+</head>
+<body>
+    <a href="javascript:void(0)" class="icon-panier" onclick="commanderPanierWhatsApp()">&#128722;<span id="compteur-panier">0</span>
+ </a>
+ <button class="btn-panier" onclick="afficherPanier()" style="display:none;"></button>
+  <header>
+
+<button id="install-button">
+    <span class="icon">📲</span>
+    <span class="text">Installer l'app</span>
+</button>
+
+  <button id="menuBtn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>  
+  <nav id="menu">
+    <H2>NOS MENUS</H2>
+    <a href="index.html">Acceuil</a>
+    <a href="service.html">Service</a>
+    <a href="contact.html">Developpeur</a>
+  </nav>
+</header>
+<head>
+<style>
+    #menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+#menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#0A192F;
+    color:var(--couleur-texte) ;
+    line-height:1.6;
+}
+body {
+    background-color: #0A192F;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+/*fait bouger les blocs*/
+.marc-box:hover{
+    transform: translateY(-5px);
+}
+.type h3 {
+    color: #000000;
+}
+.type h4{
+    color:#000000;
+}
+.page-acceuil{
+    max-width: 900px;
+    margin: 40px;
+    padding: 20px;
+}
+
+nav ol {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+.nav-ordinateurs{
+    @media (max-width:768px) {
+        
+    }
+    flex-direction: column;
+    gap: 10px;
+}
+/*pour cntrer les nav en dessous du titre */
+nav i{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;list-style: none;
+    justify-content: center;
+    color:rgb(9, 226, 100);
+    text-decoration:none ;
+    font-weight: bold;
+    transition:color 0.3s ease ;
+}
+/*couleur au survol*/
+nav i:hover{
+    color:red;
+}
+.grand-titre{
+    text-align: center;
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/*pour le box qui contient les paragaraphges et les lignes qui le separnt*/
+.acceuil-box{
+    background:#1a1a1a;
+    border: 5px solid #333;
+    border-left: 3px solid #FFD700;
+    border-radius: 10px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(red, green, blue, alpha);
+    transition: transform 0.3s ease;
+}
+/*fait bouger les blocs*/
+.acceuil-box:hover{
+    transform: translateY(-5px);
+}
+/*concerne le titre h3 leur tailles et distances du dessus avec le box*/
+.acceuil-box h3{
+    color: #FFD700;
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+.forme .type b{
+    color: #0ff065;
+}
+/*concerne les mots dans le type*/
+.forme{
+    list-style: none;
+    padding: 0;
+}
+/*caractere donner au mots type*/
+.type li {
+    background: #1a1a1a;
+    margin: 12px 0;
+    padding: 15Px 20px;
+    border-radius: 8px;
+    border-left: 3px solid #FFD700;
+    font-size: 1rem;
+    transition: backgound 0.3s ease;
+    width: 67%;
+}
+.type li:hover{
+    background: rgb(228, 87, 106);
+}
+.forme h2{
+    color: #FFD700;
+}
+/*footer*/
+.footer{
+    background: #000000;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 5px solid #FFD700;
+}
+.footer p {
+    margin: 8px 0;
+    font-size: 1rem;
+}
+.footer p:first-child {
+    color: #df0909;
+    font-weight: bold;
+}
+.footer b{
+    color: #0ff065;
+}
+.acceuil-box h4{
+    color: #FFD700;
+}
+.gogo-box b{
+    color: #0ff065;
+}
+
+/* ON COMMENCE L'ICÔNE PANIER EN HAUT A GAUCHE */
+ .icon-panier {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #313b41;
+    color: #000;
+    padding: 10px 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+ }
+ .icon-panier:hover { transform: scale(1.1); }
+ #compteur-panier {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #f00423;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+ }
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--couleur-fond);
+    color:var(--couleur-texte) ;
+    line-height:1.6;
+}
+body {
+    background-color: mediumturquoise;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+/*fait bouger les blocs*/
+.marc-box:hover{
+    transform: translateY(-5px);
+}
+.type h3 {
+    color: #000000;
+}
+.type h4{
+    color:#000000;
+}
+.page-acceuil{
+    max-width: 900px;
+    margin: 40px;
+    padding: 20px;
+}
+
+nav ol {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+.nav-ordinateurs{
+    @media (max-width:768px) {
+        
+    }
+    flex-direction: column;
+    gap: 10px;
+}
+/*pour cntrer les nav en dessous du titre */
+nav i{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;list-style: none;
+    justify-content: center;
+    color:rgb(9, 226, 100);
+    text-decoration:none ;
+    font-weight: bold;
+    transition:color 0.3s ease ;
+}
+/*couleur au survol*/
+nav i:hover{
+    color:red;
+}
+.grand-titre{
+    text-align: center;
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/*pour le box qui contient les paragaraphges et les lignes qui le separnt*/
+.acceuil-box{
+    background:#1a1a1a;
+    border: 5px solid #333;
+    border-left: 3px solid #FFD700;
+    border-radius: 10px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(red, green, blue, alpha);
+    transition: transform 0.3s ease;
+}
+/*fait bouger les blocs*/
+.acceuil-box:hover{
+    transform: translateY(-5px);
+}
+/*concerne le titre h3 leur tailles et distances du dessus avec le box*/
+.acceuil-box h3{
+    color: #FFD700;
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+.forme .type b{
+    color: #0ff065;
+}
+/*concerne les mots dans le type*/
+.forme{
+    list-style: none;
+    padding: 0;
+}
+/*caractere donner au mots type*/
+.type li {
+    background: #1a1a1a;
+    margin: 12px 0;
+    padding: 15Px 20px;
+    border-radius: 8px;
+    border-left: 3px solid #FFD700;
+    font-size: 1rem;
+    transition: backgound 0.3s ease;
+    width: 67%;
+}
+.type li:hover{
+    background: rgb(228, 87, 106);
+}
+.forme h2{
+    color: #FFD700;
+}
+/*footer*/
+/* ========== RESET DE BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Empêche le scroll horizontal sur mobile */
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: #000000;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 5px solid #df0909;
+    width: 100%;
+}
+
+.footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    word-wrap: break-word; /* Évite les débordements de texte */
+}
+
+.footer p:first-child {
+    color: #df0909;
+    font-weight: bold;
+}
+
+.footer a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+.footer b {
+    color: #6ff965;
+}
+
+/* ========== RESPONSIVE MOBILE ========== */
+@media (max-width: 768px) {
+    .footer {
+        padding: 25px 15px;
+        margin-top: 30px;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 20px 12px;
+        margin-top: 20px;
+    }
+    
+    .footer p {
+        font-size: 0.85rem;
+        margin: 7px 0;
+    }
+}
+.acceuil-box h4{
+    color: #FFD700;
+}
+.gogo-box b{
+    color: #0ff065;
+}
+
+/* ON COMMENCE L'ICÔNE PANIER EN HAUT A GAUCHE */
+ .icon-panier {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #313b41;
+    color: #000;
+    padding: 10px 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+ }
+ .icon-panier:hover { transform: scale(1.1); }
+ #compteur-panier {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #f00423;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+ }
+    .marc-box b{
+        color: rgb(22, 3, 3);
+    }
+    .marc-box h1{
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .btn-service {
+        color: rgb(8, 245, 79);
+    }
+    .btn-service {
+    background: #1a1a1a;
+    margin: 12px 0;
+    padding: 15Px 20px;
+    border-radius: 8px;
+    border-left: 5px solid #FFD700;
+    font-size: 1rem;
+    transition: backgound 0.3s ease;
+}
+.btn-service:hover{
+    background: rgb(228, 87, 106);
+}
+.forme h2{
+    color: #FFD700;
+}
+/*fait bouger les blocs*/
+.btn-service:hover{
+    transform: translateY(-5px);
+}
+.btn-service{
+    width: 60%;
+    display: block;
+    padding: 12px;
+    text-align: left;
+    text-decoration: none;
+}
+.toi-box h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.miye-box h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.miye-box {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 8px;
+    gap: 8px !important;
+}
+.miye-box > * {
+    width: 100% !important;
+}
+/* ON COMMENCE L'ICÔNE PANIER EN HAUT A GAUCHE */
+ .icon-panier {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #313b41;
+    color: #000;
+    padding: 10px 10px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+ }
+ .icon-panier:hover { transform: scale(1.1); }
+ #compteur-panier {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #f00423;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+ }
+ .avis-clients {
+    background: #111;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 10px;
+ }
+ .avis-clients h2 {
+    color: #FFD700;
+    margin-bottom: 30px;
+ }
+ .avis-box{
+    background: #222;
+    border-left: 4px solid #FFD700;
+    padding: 7px;
+    margin: 10px auto;
+    max-width: 600px;
+    border-radius: 8px;
+ }
+.avis-box p {
+ color: #fff;
+ font-style: italic;
+ }
+ .avis-box h4 {
+ color: #00FF00;
+ margin-top: 10px;
+ }
+ .avis-box span {
+ color: #FFD700;
+ font-size: 20px;
+ }
+ #menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+      #menuBtn{
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: fixed;
+    top: 20Px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#menuBtn .bar{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: red;
+    border-radius: 2px;
+}
+#menu{
+    background:#0a0f1e;
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+#menu.ouvert{
+    left: 0;
+}
+#menu a{
+    display: block;
+    color: rgb(7, 209, 84);
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #1e293b;
+}
+#menu a:hover{
+    background:#1e293b ;
+}
+#menu h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border: bottom 2px solid #1e293b;
+    letter-spacing: 2px;
+}
+/*fin du style des mots dans le menu burger*/
+* body{
+    background-color: gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.nav ol{
+    color: #0ff065;
+}
+.marc-box h1 {
+    color:rgb(255, 123, 0);
+}
+.marc-box h3{
+    color: #0ff065;
+}
+.marc-box ol {
+    color: #11dd4e;
+}
+nav ol{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+.nav-ordinateurs{
+    @media (max-width:768px) {
+        
+    }
+    flex-direction: column;
+    gap: 10px;
+}
+/*pour cntrer les nav en dessous du titre */
+nav b {
+    display: flex;
+    flex-direction: row;
+    gap: 90px;list-style: none;
+    justify-content: center;
+    color:rgb(9, 226, 100);
+    text-decoration:none ;
+    font-weight: bold;
+    transition:color 0.3s ease ;
+}
+/*pour le box qui contient les images et les lignes qui le separnt*/
+.ordinateurs-box {
+    background:cadetblue;
+    border: 5px solid #333;
+    border-left: 7px solid #FFD700;
+    border-radius: 10px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(red, green, blue, alpha);
+    transition: transform 0.3s ease;
+    width: 88%;
+}
+.ordinateurs-box h1 {
+    color: #FFD700;
+}
+.ordinateurs-box h3{
+    color: #0ff065;
+}
+.ordinateurs-box b{
+    color: #000000;
+}
+/*fait bouger les blocs*/
+.ordinateurs-box:hover{
+    transform: translateY(-5px);
+}
+/*debut de la partie box qui contient les petites images des voitures */
+.ordinateurs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px 20px;
+    background: #0a0a0A;
+    max-width: 1200px;
+    margin: 0;
+    border-radius: 10px;
+    border-left: 7px solid #FFD700;
+}
+/*affiche 2 image sur un téléphone*/
+@media (max-width: 900px) {
+    .ordinateurs{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/*affiche 1 image sur un téléphone*/
+@media (max-width: 600px) {
+    .ordinateurs{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/*ici nous a avons les coulurs de border et leur typse*/
+.ordinateurs-card {
+    background: #0a82d3;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s;
+}
+/*jaune du survol de blocs*/
+.ordinateurs-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #d80606;
+}
+/*ici nous avons les tailles de nos blocs contenants nos images*/
+.ordinateurs-card img{
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background: cadetblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.ordinateurs-card h3{
+    color: yellow;
+    font-size: 18px;
+    margin: 10px
+}
+.prix{
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+/*footer*/
+.footer{
+    background: #000000;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 5px solid #FFD700;
+}
+.footer p {
+    margin: 8px 0;
+    font-size: 1rem;
+}
+.footer p:first-child {
+    color: #df0909;
+    font-weight: bold;
+}
+.footer b{
+    color: #0ff065;
+}
+/* ========== BLOC TITRE H1 RESPONSIVE MOBILE ========== */
+
+@media screen and (max-width: 767px) {
+  
+  .tablettes-box {
+    padding: 10px;
+    margin-top: 15px !important;
+  }
+  
+  .tablettes-box h1 {
+    font-size: 18px;
+    word-wrap: break-word;
+  }
+  
+  .tablettes-box h3 {
+    font-size: 14px;
+  }
+}
+/* ========== AVIS CLIENTS RESPONSIVE MOBILE ========== */
+
+@media screen and (max-width: 767px) {
+  
+  .avis-clients {
+    padding: 15px;
+  }
+  
+  .avis-clients h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .avis-box {
+    margin-bottom: 15px;
+    padding: 15px;
+    width: 100%;
+  }
+  
+  .avis-box p {
+    font-size: 14px;
+  }
+  
+  .avis-box h4 {
+    font-size: 13px;
+  }
+}
+/* ========== FOOTER RESPONSIVE MOBILE ========== */
+
+@media screen and (max-width: 767px) {
+  
+  .footer {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .footer p {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  
+  .footer a {
+    font-size: 13px;
+  }
+}
+a{
+    text-decoration: none;
+}
+  #install-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    
+    /* Centrer l'icône */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sur desktop, afficher avec texte */
+@media (min-width: 768px) {
+    #install-button {
+        width: auto;
+        height: auto;
+        border-radius: 50px;
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+    
+    #install-button .text {
+        display: inline;
+    }
+    
+    #install-button .icon {
+        margin-right: 8px;
+    }
+}
+
+/* Sur mobile, cacher le texte */
+@media (max-width: 767px) {
+    #install-button .text {
+        display: none;
+    }
+}
+
+</style>
+<main class="marc-box" style="margin: 10px; padding: 15px; width: 100%;">
+<div class="ordinateurs-box" style="text-align: center; margin-top: 30px;">
+    <section>
+   <h1>BIENVENUE CHEZ S.HUMILDE</h1> 
+ <nav class="nav-ordinateurs">
+  <ol>
+    <b><li>VOTRE HABILLEUR DE LUXE</li></b>
+  </ol>
+ </nav>
+</div>
+</main>
+</head>
+<article style="text-align: center;">
+   <h4>Bienvenue chez YAN-BUSNESS, Nous sommes spécialisé dans la vente et la distribution des vetements toute marque.<br>Voici un exemplaire de nos Articles:</h4>
+</article>
+   <section class="ordinateurs">
+    <div class="ordinateurs-card">
+        <img src="images/IMG_6445.JPG" alt="ordinateurs"><br>⭐⭐⭐⭐⭐ 
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1027.jpeg" alt="lamborgini"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1019.jpeg" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1035.jpeg" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1038.jpeg" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1041.jpeg" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div> 
+        <div class="ordinateurs-card">
+        <img src="images/IMG_6506.JPG" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1028.jpeg" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG-1036.jpeg" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG_6514.JPG" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG_6484.JPG" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div>
+    <div class="ordinateurs-card">
+        <img src="images/IMG_6496.JPG" alt="ordinateurs"><br>⭐⭐⭐⭐⭐
+    </div> 
+       
+</section>
+<div class="avis-clients">
+    <h2>CE QUE DISENT NOS CLIENTS</h2>
+    <div class="avis-box">
+        <p> <b> "je pense que tous vos clients sont satisfait de vos service"</b></p>
+        <h4>- joseph. Kolwezi</h4>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="avis-box">
+        <p> <b> "Ma femme est tombée Amoureuse de votre boutique YAN-BUSNESS"</b></p>
+        <h4>- Augistin. Musompo</h4>
+        <span>⭐⭐⭐⭐⭐</span>
+    </div>
+    <div class="avis-box">
+        <p> <b> "personnellement, pour la valorisation d'un habillemnt de luxe; je recommande cette ntreprise."</b></p>
+        <h4>- Yanick-yane. golf</h4>
+        <span>⭐⭐⭐</span>
+    </div>
+</div>
+<script>
+    const bouton=document.getElementById("menuBtn");
+const menu=document.getElementById("menu");
+bouton.addEventListener("click", () =>{
+menu.classList.toggle("ouvert");});
+//debut panier
+ // NE JAMAIS VIDER AU CHARGEMENT
+ document.addEventListener('DOMContentLoaded', mettreAJourCompteur);
+ // 1. AJOUTER AU PANIER
+ function ajouterAuPanier(nom, prix) {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    let produit = panier.find(item => item.nom === nom);
+    if(produit) {
+        produit.quantite += 1;
+    } else {
+        panier.push({nom: nom, prix: prix, quantite: 1});
+    }
+    localStorage.setItem('panier', JSON.stringify(panier));
+    alert(nom + " ajouté au panier !");
+    mettreAJourCompteur();
+ }
+ // 2. AJOUTER ET COMMANDER DIRECT
+ function ajouterEtCommander(nom, prix) {
+    ajouterAuPanier(nom, prix);
+    commanderPanierWhatsApp();
+ }
+ // 3. METTRE A JOUR LE COMPTEUR
+ function mettreAJourCompteur() {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    let total = 0;
+    panier.forEach(item => total += item.quantite);
+    let compteur = document.getElementById('compteur-panier');
+    if(compteur) compteur.innerText = total;
+ }
+ // 4. ENVOYER SUR WHATSAPP ET VIDER APRES
+ function commanderPanierWhatsApp() {
+    let panier = JSON.parse(localStorage.getItem('panier')) || [];
+    if(panier.length === 0) {
+        alert("Votre panier est vide");
+        return;
+    }
+    let numero = "243999698899"; // TON NUMERO
+    let message = "Bonjour YANICK-BUSNESS, je veux commander:\n\n";
+    let total = 0;
+panier.forEach(item => {
+ message += `• ${item.nom} - ${item.prix}$ x ${item.quantite}\n`;
+ total += item.prix * item.quantite;
+ });
+ message += `\nTOTAL: ${total}$\n\nMerci !`;
+ window.open(`https://wa.me/${numero}?text=${encodeURIComponent(message)}`);
+ localStorage.removeItem('panier'); // Vide seulement après envoi
+ mettreAJourCompteur();
+ alert("Commande envoyée ! Le panier a été vidé.");
+ }
+ if ('serviceWorker' in navigator) {
+ navigator.serviceWorker.register('sw.js');
+ }
+ 
+    // Enregistrement du Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker enregistré avec succès:', registration);
+                })
+                .catch((error) => {
+                    console.log('Erreur d\'enregistrement du Service Worker:', error);
+                });
+        });
+    }
+
+    // 1. Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+
+    // 2. Bouton Install
+    let deferredPrompt;
+    const installButton = document.getElementById('install-button');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installButton.style.display = 'flex'; // On montre le bouton
+
+        // On attache le clic ici, quand le bouton est visible
+        installButton.onclick = async () => {
+            installButton.style.display = 'none'; // Cache direct pour éviter double clic
+            deferredPrompt.prompt();
+            const result = await deferredPrompt.userChoice;
+            console.log('Choix:', result.outcome);
+            deferredPrompt = null;
+        };
+    });
+
+    window.addEventListener('appinstalled', () => {
+        installButton.style.display = 'none';
+    });
+
+</script>  
+</body>
+    <article class="toi-box">
+<h4 style="text-align: center;">Nous vous invitons donc a cliquer sur le bouton Apropos ci-bas <br> pour en savoir un peu plus sur Nous.</h4>
+</article> 
+<ul class="humilde">
+   <nav>
+    <b><a href="service.html" class="btn-service">Service</a></b>
+   </nav>
+ </ul>
+<footer class="footer">
+        <p>&copy;2026 YANICK-BUSNESS.com-tous droits réservé. </p>
+        <p>developper par <a href="contact.html"><b>SAMUEL MARCUS SAM.</b></a></p>
+        <p>l'orloge de Dieu n'est pas ce lui des hommes Alors garde espoir</p>
+</footer> 
+</html>
